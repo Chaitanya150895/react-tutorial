@@ -3,29 +3,21 @@ import React, { Component } from 'react';
 class Counter extends Component {
     state = {
         count: 0,
-        tags: ["tag1", "tag2", "tag3"]
+        tags: []
     };
-
-    render() { 
+ 
+ renderTags(){
+    if (this.state.tags.length === 0) return <p>There are no tags!</p>;
+ }
+ 
+    render() {
         return (
         <div>
-            <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-            <button className="badge badge-secondary badge-sm">Increment</button>
-            <ul>{this.state.tags.map(tag => <li key = {tag.id}>{tag}</li>)}</ul>
+        {this.state.tags.length === 0} <p>This is a another method to render a message</p>
+        {this.state.tags.length === 0 && "Here we are using the logical && operator to render a message using boolean && string concept"}
+        {this.renderTags()}
         </div>
         );
     }
-
-getBadgeClasses() {
-    let classes = "badge m-2 badge-";
-    classes += this.state.count === 0 ? "warning" : "primary";
-return classes;
-}
-
-    formatCount(){
-        const {count} = this.state;
-        return count === 0 ? 'Zero' : count;
-    }
-}
- 
+} 
 export default Counter;
