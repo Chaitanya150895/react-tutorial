@@ -24,8 +24,8 @@ handleDelete = counterId => {
        <Counter 
        key={counter.id} 
        onDelete={this.handleDelete} 
-       value={counter.value} 
-       id = {counter.id} ><h4>Counter #{counter.id}</h4></Counter>
+       counter={counter}>
+         <h4>Counter #{counter.id}</h4></Counter>
        ))},
       </div>
     );
